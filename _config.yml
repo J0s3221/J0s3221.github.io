@@ -1,0 +1,22 @@
+title: José Oliveira
+description: Personal site, projects, and background
+url: "https://J0s3221.github.io"
+baseurl: ""
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
