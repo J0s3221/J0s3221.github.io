@@ -11,8 +11,8 @@ title: Home
   </div>
 </section>
 
-<section class="band">
-  <div class="band-inner">
+<section class="band reveal" id="about">
+  <div class="band-row reveal">
     <p class="about-intro">[Opening paragraph — the big-picture summary of who you are and what drives you]</p>
 
     <div class="about-row">
@@ -49,14 +49,14 @@ title: Home
   </div>
 </section>
 
-<section class="band band-alt">
+<section class="band band-alt reveal" id="projects-preview">
   <div class="band-inner" style="text-align:center;">
     <h2>Projects</h2>
     <p>Take a look at <a href="{{ '/projects/' | relative_url }}">what I've been building</a>.</p>
   </div>
 </section>
 
-<section class="band contact">
+<section class="band contact reveal" id="contact">
   <div class="band-inner contact-inner">
     <h2>Get in touch</h2>
     <ul>

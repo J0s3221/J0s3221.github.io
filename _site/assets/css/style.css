@@ -25,6 +25,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background-color: var(--bg);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.65;
@@ -53,6 +55,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   font-family: var(--font-mono);
   font-size: 0.85rem;
 }
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+  margin-left: auto;
+  margin-right: var(--space-md);
+}
+.nav-links a { color: var(--text-muted); }
+.nav-links a:hover { color: var(--accent); }
 .nav-home { color: var(--text); border-bottom: none; }
 .nav-home:hover { color: var(--accent); }
 .lang-toggle {
@@ -177,4 +187,47 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 720px) {
   .about-row { grid-template-columns: 1fr; }
   .about-row:nth-child(even) .about-visual { order: 0; }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Section framing ---------- */
+.band-inner {
+  position: relative;
+  padding: var(--space-md);
+}
+.band-inner::before,
+.band-inner::after,
+.about-row::before,
+.about-row::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--accent);
+  opacity: 0.5;
+}
+.band-inner::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+.band-inner::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+.about-row { position: relative; /* ...existing properties... */ }
+
+section[id] {
+  scroll-margin-top: 70px; /* adjust to match your actual nav height */
 }
