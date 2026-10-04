@@ -12,39 +12,19 @@ title: Home
 </section>
 
 <section class="band reveal" id="about">
-  <div class="band-row reveal">
+  <div class="band-inner">
+    <h2>About</h2>
     <p class="about-intro">[Opening paragraph — the big-picture summary of who you are and what drives you]</p>
 
-    <div class="about-row">
-      <div class="about-text">
-        <h3>Background</h3>
-        <p>[How you got into your field, key formative experiences]</p>
-      </div>
-      <div class="about-visual"></div>
-    </div>
-
-    <div class="about-row">
-      <div class="about-text">
-        <h3>Education</h3>
-        <p>[Degree, institution, relevant focus — kept narrative]</p>
-      </div>
-      <div class="about-visual"></div>
-    </div>
-
-    <div class="about-row">
-      <div class="about-text">
-        <h3>Interests</h3>
-        <p>[Technical interests, hobbies, what you explore outside work/study]</p>
-      </div>
-      <div class="about-visual"></div>
-    </div>
-
-    <div class="about-row">
-      <div class="about-text">
-        <h3>Currently</h3>
-        <p>[What you're working on or learning right now]</p>
-      </div>
-      <div class="about-visual"></div>
+    <div class="about-grid">
+      {% assign sorted_about = site.about | sort: "order" %}
+      {% for entry in sorted_about %}
+      <a href="{{ entry.url | relative_url }}" class="about-card about-card--{{ entry.size | default: 'normal' }}">
+        <h3>{{ entry.title }}</h3>
+        <p>{{ entry.teaser }}</p>
+        <span class="card-link">Read more &rarr;</span>
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>

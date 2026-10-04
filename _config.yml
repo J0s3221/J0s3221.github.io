@@ -3,19 +3,25 @@ description: Personal site, projects, and background
 url: "https://J0s3221.github.io"
 baseurl: ""
 
-# Collections
 collections:
   projects:
     output: true
     permalink: /projects/:path/
+  about:
+    output: true
+    permalink: /about/:path/
 
-# Defaults
 defaults:
   - scope:
       path: ""
       type: "projects"
     values:
       layout: "project"
+  - scope:
+      path: ""
+      type: "about"
+    values:
+      layout: "about-entry"
 
 markdown: kramdown
 plugins:
