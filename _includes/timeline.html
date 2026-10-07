@@ -1,0 +1,15 @@
+<ol class="timeline">
+  {% for item in site.data.education %}
+  <li class="timeline-item{% if item.current %} is-current{% endif %}" tabindex="0">
+    <span class="timeline-dot" aria-hidden="true"></span>
+    <div class="timeline-card">
+      <span class="timeline-period">{{ item.period }}</span>
+      <h3>{{ item.level }}</h3>
+      <p class="timeline-institution">{{ item.institution }}</p>
+      <div class="timeline-more">
+        <div><p>{{ item.details }}</p></div>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ol>

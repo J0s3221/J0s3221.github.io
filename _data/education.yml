@@ -1,0 +1,15 @@
+- level: "High School"
+  institution: "[School name]"
+  period: "[Start] – [End]"
+  details: "[Focus area, notable projects or achievements, anything that shaped the path to engineering.]"
+
+- level: "Bachelor's in Telecommunications and Computer Engineering"
+  institution: "[University name]"
+  period: "[Start] – [End]"
+  details: "[Key areas of study, thesis or final project, relevant coursework.]"
+
+- level: "Master's in Telecommunications and Computer Engineering"
+  institution: "[University name]"
+  period: "[Start] – Present"
+  current: true
+  details: "[Specialization, current research or thesis topic, courses you're taking now.]"

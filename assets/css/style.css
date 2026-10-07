@@ -258,3 +258,110 @@ section[id] {
     transform: none;
   }
 }
+
+/* ---------- Education timeline ---------- */
+.timeline {
+  --tl-pad: 3rem;
+  list-style: none;
+  margin: var(--space-lg) 0 0;
+  padding: 0 0 0 var(--tl-pad);
+  position: relative;
+}
+
+/* the line: faint at the start, stronger toward the present */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--border), var(--accent));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-md);
+  outline: none;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  top: 1.35rem;
+  left: calc(5px - var(--tl-pad));
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.timeline-item:hover .timeline-dot,
+.timeline-item:focus-within .timeline-dot {
+  background: var(--accent);
+}
+.timeline-item.is-current .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg-alt), 0 0 0 5px var(--accent);
+}
+
+.timeline-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color 0.2s ease;
+}
+.timeline-item:hover .timeline-card,
+.timeline-item:focus-within .timeline-card {
+  border-color: var(--accent);
+}
+.timeline-item:focus-visible .timeline-card {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.timeline-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0.25rem 0;
+}
+.timeline-institution {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+/* details expand on hover/focus */
+.timeline-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+.timeline-more > div { overflow: hidden; }
+.timeline-more p {
+  margin: var(--space-sm) 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.timeline-item:hover .timeline-more,
+.timeline-item:focus-within .timeline-more {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* touch devices have no hover, so show details by default */
+@media (hover: none) {
+  .timeline-more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}

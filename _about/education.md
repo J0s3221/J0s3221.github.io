@@ -5,4 +5,4 @@ size: medium
 order: 2
 ---
 
-[Full writeup — institutions, focus areas, relevant coursework.]
+{% include timeline.html %}
