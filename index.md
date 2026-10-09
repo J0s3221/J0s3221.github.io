@@ -4,7 +4,7 @@ title: Home
 ---
 
 <section class="hero">
-  <h1>Hi, I'm [Your Name]</h1>
+  <h1>Hi, I'm José Oliveira</h1>
   <p class="role">Telecommunications & Computer Engineer</p>
   <div class="signal-divider" aria-hidden="true">
     <svg viewBox="0 0 160 20"><polyline points="0,10 40,10 48,3 56,17 64,10 160,10" /></svg>
@@ -19,10 +19,23 @@ title: Home
     <div class="about-grid">
       {% assign sorted_about = site.about | sort: "order" %}
       {% for entry in sorted_about %}
-      <a href="{{ entry.url | relative_url }}" class="about-card about-card--{{ entry.size | default: 'normal' }}">
+      <a href="{{ entry.url | relative_url }}"
+         class="about-card pedal--{{ entry.pedal | default: 'cream' }} font--{{ entry.font | default: 'serif' }}"
+         style="--cols: {{ entry.cols | default: 1 }}; --rows: {{ entry.rows | default: 2 }};">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        {% if entry.image %}
+        <div class="card-image">
+          <img src="{{ entry.image | relative_url }}" alt="{{ entry.image_alt | default: '' }}" loading="lazy">
+        </div>
+        {% endif %}
         <h3>{{ entry.title }}</h3>
         <p>{{ entry.teaser }}</p>
-        <span class="card-link">Read more &rarr;</span>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
       </a>
       {% endfor %}
     </div>

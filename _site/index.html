@@ -7,7 +7,16 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Bungee&family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -21,7 +30,18 @@
         <a href="/projects/">Projects</a>
         <a href="/#contact">Contact</a>
       </div>
-      <button id="lang-toggle" class="lang-toggle">PT</button>
+      <div class="nav-controls">
+        <button id="lang-toggle" class="lang-toggle" type="button">PT</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -42,28 +62,82 @@
     <div class="about-grid">
       
       
-      <a href="/about/background/" class="about-card about-card--large">
+      <a href="/about/background/" class="about-card pedal--green font--serif" style="--cols: 2; --rows: 4;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
         <h3>Background</h3>
         <p>How I got into engineering, and the path that led here.</p>
-        <span class="card-link">Read more &rarr;</span>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
       </a>
       
-      <a href="/about/education/" class="about-card about-card--medium">
+      <a href="/about/education/" class="about-card pedal--blue font--mono" style="--cols: 2; --rows: 2;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
         <h3>Education</h3>
-        <p>Bachelor's in Telecommunications and Computer Engineering, now pursuing a Master's.</p>
-        <span class="card-link">Read more &rarr;</span>
+        <p>From high school to a Master's in Telecommunications and Computer Engineering.</p>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
       </a>
       
-      <a href="/about/interests/" class="about-card about-card--small">
-        <h3>Interests</h3>
-        <p>What I explore outside formal work and study.</p>
-        <span class="card-link">Read more &rarr;</span>
+      <a href="/about/events/" class="about-card pedal--yellow font--typewriter" style="--cols: 1; --rows: 2;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
+        <h3>Events</h3>
+        <p>Competitions, hackathons and talks.</p>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
       </a>
       
-      <a href="/about/currently/" class="about-card about-card--medium">
+      <a href="/about/currently/" class="about-card pedal--red font--marker" style="--cols: 1; --rows: 2;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
         <h3>Currently</h3>
-        <p>What I'm working on or learning right now.</p>
-        <span class="card-link">Read more &rarr;</span>
+        <p>What I'm working on and learning right now.</p>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
+      </a>
+      
+      <a href="/about/music/" class="about-card pedal--orange font--stencil" style="--cols: 2; --rows: 3;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
+        <h3>Music</h3>
+        <p>Guitar, pedals, and whatever instrument I pick up next.</p>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
+      </a>
+      
+      <a href="/about/movies-books/" class="about-card pedal--purple font--serif" style="--cols: 2; --rows: 3;">
+        <div class="card-top">
+          <span class="knobs" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        
+        <h3>Movies &amp; Books</h3>
+        <p>What I watch, what I read, and what stuck with me.</p>
+        <div class="card-foot">
+          <span class="card-link">Open</span>
+          <span class="footswitch" aria-hidden="true"></span>
+        </div>
       </a>
       
     </div>
@@ -98,5 +172,6 @@
   <script src="/assets/js/lang-toggle.js"></script>
   <script src="/assets/js/reveal.js"></script>
   <script src="/assets/js/lang-toggle.js"></script>
+  <script src="/assets/js/theme-toggle.js"></script>
 </body>
 </html>
